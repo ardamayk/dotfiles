@@ -1,0 +1,28 @@
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=150
+SAVEHIST=150
+setopt autocd beep notify
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/r/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+
+# . ./.bashrc
+
+# PROMPT='$B%F{green}%1~ '
+PROMPT='%B%F{green}%1~%f%b %F{yellow}%#%f '
+
+export EDITOR=nvim
+
+. ~/.config/zsh/bash_alias
+. ~/.config/zsh/bash_function
+. ~/.config/zsh/zsh-syntax-highlight
+
+eval "$(zoxide init zsh)"
+

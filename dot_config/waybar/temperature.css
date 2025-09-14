@@ -1,0 +1,9 @@
+#temperature {
+  margin: 0.4rem 0;
+  /* margin-right: 0.8rem; */
+  padding: 0 0.4rem 0 0.8rem;
+  border-left: white solid 0.05rem;
+  border-radius: 0 0.4rem 0.4rem 0;
+  color: @green;
+  background-color: black;
+}

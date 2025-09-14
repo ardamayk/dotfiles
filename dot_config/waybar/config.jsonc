@@ -1,0 +1,182 @@
+{
+  "height": 30,
+  // "spacing": 8,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/language"
+    // "sway/mode",
+    // "sway/scratchpad",
+    // "custom/media"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "group/my-tray",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "cpu",
+    "temperature"
+    // "privacy",
+  ],
+
+  // modules-left
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "DP-2": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
+    },
+    "spacing": 15
+  },
+
+  "hyprland/language": {
+    "format": " {}",
+    "format-en": "US  🇺🇸",
+    // "format-en-colemak_dh": "AMERICA (Colemak-DH), HELL YEAH",
+    "format-tr": "TR  🇹🇷",
+    "keyboard-name": "keyd-virtual-keyboard"
+  },
+
+  // "load": {
+  //   "interval": 10,
+  //   "format": "load: {load5} ",
+  //   "max-length": 100,
+  // },
+
+
+  // "privacy": {
+  //   "icon-spacing": 4, "icon-size": 18, "transition-duration": 250,
+  //   "modules": [
+  //     {
+  //       "type": "screenshare",
+  //       "tooltip": true,
+  //       "tooltip-icon-size": 24
+  //     },
+  //     {
+  //       "type": "audio-out",
+  //       "tooltip": true,
+  //       "tooltip-icon-size": 24
+  //     },
+  //     {
+  //       "type": "audio-in",
+  //       "tooltip": true,
+  //       "tooltip-icon-size": 24
+  //     }
+  //   ],
+  //   "ignore-monitor": true,
+  //   "ignore": [
+  //     {
+  //       "type": "audio-in",
+  //       "name": "cava"
+  //     },
+  //     {
+  //       "type": "screenshare",
+  //       "name": "obs"
+  //     }
+  //   ]
+  // },
+
+
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%d - %H:%M}",
+    "tooltip-format": "{:%A}",
+    "timezone": "Europa/Istanbul"
+  },
+
+
+
+
+
+
+
+
+
+  // modules-right
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "alacritty -e bluetui"
+  }, 
+
+  "network": { 
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "on-click": "alacritty -e impala"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  %{volume}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+      "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+      "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "on-click": "alacritty -e btop"
+  },
+
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C ",
+    // "format": "{temperatureC}°C "
+    "format": " {temperatureC}°",
+    "on-click": "alacritty -e btop"
+  },
+
+
+  "group/my-tray": {
+    "orientation": "horizontal",   // sağda yatay duracak
+    "modules": [
+      "custom/trayicon",           // grup lideri (işaret veya ikon)
+      "tray"                       // gerçek tray modülü
+    ],
+    "drawer": {
+      "transition-duration": 400,          // ms cinsinden animasyon
+      "transition-left-to-right": false,   // ikon sola kayıp açsın istiyorsan
+      "children-class": "drawer-child",    // child’lara CSS için class
+      "click-to-reveal": false             // hover ile açılsın
+    }
+  },
+  "custom/trayicon": {
+    "format": "◀",        // buraya istediğin işareti koyabilirsin (örn. ⋮)
+    "tooltip": "Tray"     // üstüne gelince tooltip
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
+}

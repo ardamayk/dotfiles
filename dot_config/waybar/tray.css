@@ -1,0 +1,86 @@
+/* #tray { */
+/*   margin: 0.4rem 0; */
+/*   padding: 0 0.6rem; */
+/*   border-radius: 0.4rem; */
+/* } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Drawer child’ları renklendirmek için */
+
+
+.drawer-child {
+  /* background: linear-gradient(to left, rgba(80, 80, 80, 0.9), rgba(40, 40, 40, 0.8)); */
+  /* border-radius: 0.4rem; */
+  /* padding: 10px; */
+  /* margin: 10px; */
+  /* background-color: blue; */
+}
+
+#custom-trayicon {
+  margin: 0.4rem 0;
+  background-color: black;
+  border-radius: 0 0.4rem 0.4rem 0;
+  padding: 0 0.4rem 0 0.4rem;
+}
+
+#tray {
+  margin: 0.4rem 0;
+  padding: 0 0.4rem;
+  background-color: black;
+  border-radius: 0.2rem 0 0 0.2rem;
+}
+
+
+
+
+/* Eğer tüm tray grubu için arka plan istiyorsan */
+/* #group-tray { */
+/*   background: linear-gradient(to left, #3a3a3a, #1e1e1e); */
+/*   border-radius: 0.4rem; */
+/*   padding: 4px; */
+/* } */
+
+
+
+
+
+
+
+
+
+
+
+
+/* #tray { */
+/*   min-width: 20px; */
+/*   opacity: 0.0; */
+/*   transition: all 0.3s ease; */
+/* } */
+/* #tray:hover { */
+/*   min-width: 120px; */
+/*   opacity: 1; */
+/* } */
+/* #tray > .tray-item { */
+/*   opacity: 0; */
+/*   transition: opacity 0.3s ease; */
+/* } */
+/* #tray:hover > .tray-item { */
+/*   opacity: 1; */
+/* } */
+/* #tray > .tray-item:nth-child(1) { transition-delay: 0.1s; } */
+/* #tray > .tray-item:nth-child(2) { transition-delay: 0.2s; } */
+/* #tray > .tray-item:nth-child(3) { transition-delay: 5.3s; } */

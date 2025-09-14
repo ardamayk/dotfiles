@@ -1,0 +1,41 @@
+@import url("./theme.css");
+@import url("./bluetooth.css");
+@import url("./network.css");
+@import url("./workspaces.css");
+@import url("./pulseaudio.css");
+@import url("./cpu.css");
+@import url("./tray.css");
+@import url("./temperature.css");
+/* @import url("./date.css"); */
+@import url("./clock.css");
+@import url("./language.css");
+
+*{
+  /* border: solid 0.5px; */
+  font: normal bold 1rem "JetBrainsMono Nerd Font";
+}
+/* Value: 	[ [ <‘font-style’> || <font-variant-css21> || <‘font-weight’> || <‘font-stretch’> ]? <‘font-size’> [ / <‘line-height’> ]? <‘font-family’> ] | caption | icon | menu | message-box | small-caption | status-bar  */
+
+.modules-left, .modules-right, .modules-center{
+  padding: 0 0.8rem;
+  /* background-color: black; */
+  border-radius: 0.4rem;
+}
+
+.modules-right {
+  /* background-color: @lavender; */
+}
+
+.modules-center {
+}
+
+
+
+/* .modules-center > widget{ */
+/*   margin: 0.4rem; */
+/* } */
+
+/* Waybar genel arka plan */
+window#waybar {
+  background-color: transparent;
+}
