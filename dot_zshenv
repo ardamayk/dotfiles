@@ -1,0 +1,5 @@
+# zsh configs under XDG_CONFIG directory
+export ZDOTDIR="$HOME/.config/zsh/"
+
+# no PATH intervention, it will be done in login
+# small adjustments
