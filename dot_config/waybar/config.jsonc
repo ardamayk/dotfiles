@@ -32,16 +32,16 @@
   "hyprland/workspaces": {
     "persistent-workspaces": {
       // adjust monitor name to yours
-      "eDP-1": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
+      "DP-2": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
     },
     "spacing": 15
   },
 
   "hyprland/language": {
-    "format": " {}",
-    "format-en": "US  🇺🇸",
+    "format": "{}",
+    "format-en": "US 🇺🇸",
     // "format-en-colemak_dh": "AMERICA (Colemak-DH), HELL YEAH",
-    "format-tr": "TR  🇹🇷",
+    "format-tr": "TR 🇹🇷",
     "keyboard-name": "keyd-virtual-keyboard"
   },
 
@@ -216,7 +216,8 @@
 "disk": {
     "format": " {free}",
     "interval": 300,
-    "path": "/"
+    "path": "/",
+    "tooltip-format": "{used} used"
 },
 
 // buradaki ise /mnt altindaki usb nin boyutunu dinamik olarak gosterecek

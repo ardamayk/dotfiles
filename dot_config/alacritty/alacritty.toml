@@ -1,0 +1,45 @@
+[env]
+# DENEME = "1.0" # deneme env var
+
+[general]
+working_directory = "/home/r/"
+
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-l"]
+
+[window]
+padding = { x = 10, y = 15 }
+# decorations = "none" # ne ise yaradigini cozemedim.
+opacity = 0.8
+# blur = false # no effect, cuz hyprland adjusts this
+dynamic_title = true
+
+[colors.primary]
+# foreground = "#F28FAD" # adjusts foreground color of terminal
+# background = "#934790" # adjusts background color of terminal
+
+[colors]
+footer_bar.foreground = "#F28FAD"
+footer_bar.background = "#934790"
+
+[cursor]
+style.shape = "underline"
+style.blinking = "Always"
+blink_interval = 500
+blink_timeout = 2
+unfocused_hollow = false
+thickness = 0.1
+
+[mouse]
+hide_when_typing = true
+
+[bell]
+animation = "linear"
+duration = 250
+color = "#640D5F"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "normal" }
+size = 9
+offset = { x = -1, y = 5 }

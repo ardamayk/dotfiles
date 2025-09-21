@@ -14,13 +14,15 @@
 @import url("./disk.css");
 @import url("./mpris.css");
 
-*{
+* {
   /* border: solid 0.5px; */
   font: normal bold 1rem "JetBrainsMono Nerd Font";
 }
 /* Value: 	[ [ <‘font-style’> || <font-variant-css21> || <‘font-weight’> || <‘font-stretch’> ]? <‘font-size’> [ / <‘line-height’> ]? <‘font-family’> ] | caption | icon | menu | message-box | small-caption | status-bar  */
 
-.modules-left, .modules-right, .modules-center{
+.modules-left,
+.modules-right,
+.modules-center {
   padding: 0 0.8rem;
   /* background-color: black; */
   border-radius: 0.4rem;
@@ -32,8 +34,6 @@
 
 .modules-center {
 }
-
-
 
 /* .modules-center > widget{ */
 /*   margin: 0.4rem; */
