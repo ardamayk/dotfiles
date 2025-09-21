@@ -9,6 +9,10 @@
 /* @import url("./date.css"); */
 @import url("./clock.css");
 @import url("./language.css");
+@import url("./battery.css");
+@import url("./memory.css");
+@import url("./disk.css");
+@import url("./mpris.css");
 
 *{
   /* border: solid 0.5px; */

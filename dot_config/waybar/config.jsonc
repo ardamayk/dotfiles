@@ -4,21 +4,27 @@
 
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/language"
+    "hyprland/language",
+    "mpris"
     // "sway/mode",
     // "sway/scratchpad",
-    // "custom/media"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
     "group/my-tray",
+    // "custom/media",
+    "battery",
+    "memory",
+    "disk",
+
+    // "cpu",
+    // "temperature",
+
     "bluetooth",
     "network",
-    "pulseaudio",
-    "cpu",
-    "temperature"
+    "pulseaudio"
     // "privacy",
   ],
 
@@ -142,6 +148,34 @@
     "ignored-sinks": ["Easy Effects Sink"]
   },
 
+
+
+// "custom/media": {
+//   "format": "{}",
+//   "tooltip": "Tray",
+//   "exec": "playerctl metadata --format '{{ title }}'",
+//   "interval": 1,
+//   "on-click": "playerctl play-pause"
+// },
+
+"mpris": {
+	"format": "{dynamic}",
+	"format-paused": "{dynamic}",
+  // "ignored-players": ["firefox"],
+  "player": "spotify",
+  "dynamic-order": ["title", "artist"],
+	"player-icons": {
+		"default": "▶",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "⏸"
+	},
+	// "ignored-players": ["firefox"]
+},
+
+
+
   "cpu": {
     "format": "  {usage}%",
     "tooltip": true,
@@ -158,6 +192,39 @@
     "on-click": "alacritty -e btop"
   },
 
+"battery": {
+    // "bat": "BATT",
+    // "adapter": "ACAD",
+    "design-capacity": true,
+    "full-at": 80,
+    "interval": 120,
+    "states": {
+        "good": 100,
+        "fine": 80,
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25
+},
+"memory": {
+    "format": " {avail}GiB",
+    "interval": 60,
+    "max-length": 10
+},
+"disk": {
+    "format": " {free}",
+    "interval": 300,
+    "path": "/"
+},
+
+// buradaki ise /mnt altindaki usb nin boyutunu dinamik olarak gosterecek
+// "disk": {
+//     "interval": 300,
+//     "format": "{free}",
+//     "path": "/mnt"
+// },
 
   "group/my-tray": {
     "orientation": "horizontal",   // sağda yatay duracak

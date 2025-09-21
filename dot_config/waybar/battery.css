@@ -1,0 +1,45 @@
+/* full */
+/* #battery.full { */
+/*   background: black; */
+/*   color: purple; */
+/* } */
+
+/* #battery.discharging { */
+/*   background: yellow; */
+/* } */
+
+
+#battery {
+  margin: 0.4rem 0 0.4rem 0.8rem;
+  padding: 0 0.8rem 0 0.4rem;
+  border-radius: 0.4rem 0 0 0.4rem;
+  color: @rosewater;
+  background-color: black;
+}
+
+
+/* enough charge */
+#battery.good {
+  background: black;
+  color: green;
+}
+
+/* charging */
+#battery.charging {
+  background: blue;
+  color: blue;
+}
+
+
+/* discharging warning */
+#battery.discharging.warning {
+  background: black;
+  color: yellow;
+}
+
+/* discharging critical */
+#battery.discharging.critical {
+  background: black;
+  color: red;
+}
+

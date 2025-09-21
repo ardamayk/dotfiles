@@ -1,7 +1,8 @@
-#language {
+#memory {
   margin: 0.4rem 0;
   padding: 0 0.8rem;
-  background-color: black;
   border-left: white solid 0.1rem;
   border-right: white solid 0.1rem;
+  color: @mauve;
+  background-color: black;
 }

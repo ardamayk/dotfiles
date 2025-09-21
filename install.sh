@@ -20,6 +20,7 @@ chezmoi init me.github:ardamayk/dotfiles.git
 
 # zshell ayarlamalari
 chsh -s /bin/zsh
+sudo pacman -S zsh-syntax-highlighting
 # oh-my-zshell
 
 # git ayarlamalari
@@ -41,6 +42,9 @@ systemctl enable --now keyd
 # # yay install
 # sudo pacman -S yay
 
+# font for browser
+fc-cache -fv
+
 # Icon pack install
 sudo pacman -S ttf-nerd-fonts-symbols
 
@@ -55,11 +59,11 @@ sudo pacman -S sddm
 # monitor degerinin hyprland config icinde ayarlanmasi gerekiyor
 sudo pacman -S hyprland xdg-desktop-portal-hyprland uwsm
 /usr/share/wayland-sessions
-zshell highlighting
 
 # hyprpaper in calismasi icin monitor adinin dogru verilmesi gerekiyor
 # Hypr applications install
-sudo pacman -S hyprpaper hyprlock hypridle hyprpicker hyprshot
+# hyprpoolkitagent'in GUI araclarinin duzgun calismasi icin gerekli
+sudo pacman -S hyprpaper hyprlock hypridle hyprpicker hyprshot hyprpoolkitagent
 
 # Notificiaton center install
 sudo pacman -S swaync
@@ -81,6 +85,7 @@ sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pavucontrol
 # pulseaudio veya alsa gerekmiyor ? neden gerekmiyor peki
 # enable islemleri gerekiyor, pulseaudio nun disable --now yapilmasi gerekiyor
 # --user olarak calisiyorlar, server sistemi, session sistemi var wireplumber
+sudo pacman -S playerctl
 
 #  wifi install
 sudo pacman -S impala
@@ -107,3 +112,8 @@ docker virt-manager electron
 
 # flatpak
 sudo pacman -S flatpak
+
+# bakilacaklar
+hardinfo2
+lm_sensors
+btop
