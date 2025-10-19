@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-alias vim="nvim"
-alias neovim='sudo -E nvim'
+alias v="nvim"
+alias nv='sudo -E nvim'
 alias ls="eza -l --no-time"
 alias lsa="eza -la --no-time"
 alias sd="poweroff"
@@ -13,3 +13,5 @@ alias wifitui="impala"
 
 alias vlc="flatpak run org.videolan.VLC"
 alias telegram="flatpak run org.telegram.desktop"
+
+alias rm="rm -rf"

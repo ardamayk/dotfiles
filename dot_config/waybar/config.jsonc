@@ -32,7 +32,7 @@
   "hyprland/workspaces": {
     "persistent-workspaces": {
       // adjust monitor name to yours
-      "DP-2": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
+      "eDP-1": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
     },
     "spacing": 15
   },

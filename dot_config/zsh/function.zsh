@@ -77,3 +77,33 @@ PY
   [ $had_error -ne 0 ] && return 4 || return 0
 }
 
+
+# function kittysession() {
+#   if [ -z "$1" ]; then
+#     echo "Kullanım: kittysession <session_dosyası>"
+#     return 1
+#   fi
+#
+#   local input_path="$1"
+#   local session_path=""
+#
+#   # Absolute path mi?
+#   if [[ "$input_path" = /* ]]; then
+#     session_path="$input_path"
+#   else
+#     # Relative path'i tam yola çevir
+#     session_path="$(realpath "$input_path" 2>/dev/null)"
+#   fi
+#
+#   # Dosya mevcut mu kontrol et
+#   if [ ! -f "$session_path" ]; then
+#     echo "Hata: '$session_path' bulunamadı."
+#     return 1
+#   fi
+#
+#   # Loglama (debug amaçlı, istersen silebilirsin)
+#   echo "$session_path" >> ~/file.txt
+#
+#   # Session'ı başlat ve terminali kapat
+#   nohup kitty --session "$session_path" >/dev/null 2>&1 & disown && exit
+# }

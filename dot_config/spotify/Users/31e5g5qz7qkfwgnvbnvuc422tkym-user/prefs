@@ -1,5 +1,0 @@
-audio.play_bitrate_non_metered_migrated=true
-connect.dial_devices="[]"
-connect.mdns_devices="[]"
-ui.minimize_to_tray=true
-ui.track_notifications_enabled=true

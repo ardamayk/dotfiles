@@ -49,6 +49,7 @@ sudo pacman -S sddm
 # hyprland kurulumu icin swaync nin kurulmasi gerekiyor
 # monitor degerinin hyprland config icinde ayarlanmasi gerekiyor
 sudo pacman -S hyprland xdg-desktop-portal-hyprland uwsm
+# xdg-desktop-portal, xdg-desktop-portal-gtk
 /usr/share/wayland-sessions
 
 # hyprpaper in calismasi icin monitor adinin dogru verilmesi gerekiyor
@@ -125,3 +126,14 @@ sudo pacman -S flatpak
 hardinfo2
 lm_sensors
 btop
+
+# Duzenlenecekler
+zellij
+# tlp
+# tlpui
+fnm
+flatpak zen
+vite
+live-server
+imagemagick
+kitty

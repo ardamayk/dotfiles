@@ -17,6 +17,7 @@
 * {
   /* border: solid 0.5px; */
   font: normal bold 1rem "JetBrainsMono Nerd Font";
+  font-size: 14;
 }
 /* Value: 	[ [ <‘font-style’> || <font-variant-css21> || <‘font-weight’> || <‘font-stretch’> ]? <‘font-size’> [ / <‘line-height’> ]? <‘font-family’> ] | caption | icon | menu | message-box | small-caption | status-bar  */
 

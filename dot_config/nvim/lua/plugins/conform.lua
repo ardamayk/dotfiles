@@ -8,6 +8,10 @@ return {
       -- Web
       javascript = { "prettier" },
       typescript = { "prettier" },
+
+      -- javascript = { "biome" },
+      -- typescript = { "biome" },
+
       javascriptreact = { "prettier" },
       typescriptreact = { "prettier" },
       css = { "prettier" },
@@ -24,6 +28,7 @@ return {
 
       -- Shell
       sh = { "shfmt" },
+      markdown = { "prettier" },
 
       -- -- Python
       -- python = { "black" },

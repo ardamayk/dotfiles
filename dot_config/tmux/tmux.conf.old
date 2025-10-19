@@ -1,49 +1,35 @@
-# ~/.tmux.conf
-
-# Options to make tmux more pleasant
-set -g mouse on
-set -g default-terminal "tmux-256color"
-
-# Configure the catppuccin plugin
-set -g @catppuccin_flavor "mocha"
-set -g @catppuccin_window_status_style "rounded"
-
-# Load catppuccin
-# run ~/.config/tmux/plugins/catppuccin/tmux/catppuccin.tmux
-# For TPM, instead use `run '~/.config/tmux/plugins/tmux/catppuccin.tmux'`
-run '~/.config/tmux/plugins/tmux/catppuccin.tmux'
-
-# Make the status line pretty and add some modules
-set -g status-right-length 100
-set -g status-left-length 100
-set -g status-left ""
-set -g status-right "#{E:@catppuccin_status_application}"
-set -agF status-right "#{E:@catppuccin_status_cpu}"
-set -ag status-right "#{E:@catppuccin_status_session}"
-set -ag status-right "#{E:@catppuccin_status_uptime}"
-set -agF status-right "#{E:@catppuccin_status_battery}"
-
-
-run '~/.config/tmux/plugin-manager/tpm'
-
-
-# run ~/.config/tmux/plugins/tmux-plugins/tmux-cpu/cpu.tmux
-# run ~/.config/tmux/plugins/tmux-plugins/tmux-battery/battery.tmux
-# # Or, if using TPM, just run TPM
-
-## MY-CONFIGS
-
-# BINDINGS
+# bind and bind-key is same
 # set and set-option is same
 unbind-key C-b
 set-option -g prefix \~
 bind \~ send-prefix
+
+# ##### Genel konfor
+# set -g mouse on
+# set -g history-limit 100000
+# set -g renumber-windows on
+# set -g focus-events on
+# set -sg escape-time 10            # 0 da olur; 10ms daha güvenli
+# set -g repeat-time 500           # Prefix sonrası 2 sn içinde tekrar tuşlarını kabul et
+
 
 # vi-style gecisler
 bind | split-window -h -c "#{pane_current_path}"
 ##### Panel/Window split'leri mevcut dizinden aç
 bind - split-window -v -c "#{pane_current_path}"
 bind c new-window -c "#{pane_current_path}"
+
+# ##### Vim benzeri panel gezinme (tekrarlanabilir)
+# bind -r h select-pane -L
+# bind -r j select-pane -D
+# bind -r k select-pane -U
+# bind -r l select-pane -R
+#
+# ##### Hızlı panel boyutlandırma (basılı tut)
+# bind -r H resize-pane -L 1
+# bind -r J resize-pane -D 1
+# bind -r K resize-pane -U 1
+# bind -r L resize-pane -R 1
 
 
 # Vertical split (Shift+V)
@@ -56,17 +42,40 @@ bind H split-window -h -c "#{pane_current_path}"
 bind w choose-tree -Zw     # w ile session/window/pane ağacı
 bind r command-prompt -I "#S" "rename-session '%%'"
 
-
 ##### Zoom / Panoları senkronize et toggle
 bind z resize-pane -Z
 bind s setw -g synchronize-panes \; display-message "sync: #{?synchronize-panes,ON,OFF}"
 
-  
+
 setw -g automatic-rename on
 set -g allow-rename on
+set -g window-status-format "#I:#W"
+set -g window-status-current-format "#I:#W"
+set -g status-justify centre
+
+# Left status bar
+set -g status-left ' \
+#[bold,fg=yellow]#S\
+#[fg=white] | \
+#[bold,fg=cyan]#H'
+
+# right status bar
+# set -g status-right ''
+set -g status-right '#[fg=green]#{pane_current_path} #[fg=white]|#[fg=blue] #(/home/r/.config/tmux/proc.sh)'
+
+set-option -g status-position bottom
+
+##### Status bar (clean)
+set -g status-interval 1
+set -g status-right-length 50
+set -g status-left-length 30
+set -g status-style fg=pink,bg=black
+# set -g pane-border-style fg=brightblack # TODO:
+set -g pane-active-border-style fg=red
+set -g message-style fg=black,bg=yellow
 set -g allow-passthrough on
 
-# PLUGINS
+# ~/.tmux.conf sonuna ekle:
 set -g @plugin 'tmux-plugins/tpm'
 # TODO: bunlara bakilacak
 # set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -76,6 +85,8 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'      # oturumları kaydet/yükle
 set -g @plugin 'tmux-plugins/tmux-continuum'      # otomatik kaydet
 set -g @continuum-restore 'on'
 set -g @resurrect-capture-pane-contents 'on'
+
+# tmux vim like vim-tmux-navigator
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'catppuccin/tmux#v2.1.3' # See https://github.com/catppuccin/tmux/tags for additional tags
 
@@ -86,13 +97,3 @@ run '~/.config/tmux/plugin-manager/tpm'
 
 # prefix + I yardimi ile pluginleri tmux icindeyken indir
 # add it to nvim config too!!!
-
-
-
-
-
-
-
-
-
-# set -g status-right '#[fg=green]#{pane_current_path} #[fg=white]|#[fg=blue] #(/home/r/.config/tmux/proc.sh)'
