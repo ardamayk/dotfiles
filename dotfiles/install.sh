@@ -137,3 +137,6 @@ vite
 live-server
 imagemagick
 kitty
+
+# catputccin
+git clone catputcin/hyprland, catputcin/hyprlock, catputcin/sddm

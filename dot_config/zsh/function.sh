@@ -19,7 +19,7 @@ wlcopy_file() {
   # URL encode için Python kullan (varsa). Yoksa basit bir fallback.
   _quote_path() {
     if command -v python3 >/dev/null 2>&1; then
-      python3 - <<'PY' "$1"
+      python3 - "$1" <<'PY'
 import sys, urllib.parse
 p = sys.argv[1]
 # Slashları koru, diğerlerini encode et
@@ -76,7 +76,6 @@ PY
   # En az bir argüman hatalıysa non-zero döndür
   [ $had_error -ne 0 ] && return 4 || return 0
 }
-
 
 # function kittysession() {
 #   if [ -z "$1" ]; then

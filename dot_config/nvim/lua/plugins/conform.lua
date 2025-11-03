@@ -6,17 +6,20 @@ return {
 
       -- LaTeX tex = { "bibtex-tidy", "latexindent" },
       -- Web
-      javascript = { "prettier" },
-      typescript = { "prettier" },
 
-      -- javascript = { "biome" },
-      -- typescript = { "biome" },
+      -- html = { "prettier" },
+      javascript = { "biome" },
+      typescript = { "biome" },
+      javascriptreact = { "biome" },
+      typescriptreact = { "biome" },
 
-      javascriptreact = { "prettier" },
-      typescriptreact = { "prettier" },
-      css = { "prettier" },
-      html = { "prettier" },
-      json = { "prettier" },
+      -- javascript = { "prettier" },
+      -- typescript = { "prettier" },
+      -- javascriptreact = { "prettier" },
+      -- typescriptreact = { "prettier" },
+      -- css = { "prettier" },
+      -- html = { "prettier" },
+      -- json = { "prettier" },
 
       -- Svelte
       svelte = { "prettier" },
@@ -28,10 +31,19 @@ return {
 
       -- Shell
       sh = { "shfmt" },
+
+      -- markdown = { "rumdl" },
       markdown = { "prettier" },
 
       -- -- Python
-      -- python = { "black" },
+      python = {
+        -- To fix auto-fixable lint errors.
+        "ruff_fix",
+        -- To run the Ruff formatter.
+        "ruff_format",
+        -- To organize the imports.
+        "ruff_organize_imports",
+      },
     },
   },
 }
