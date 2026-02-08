@@ -1,5 +1,7 @@
 # pacstrap
-pacstrap -K /mnt base base-devel linux linux-firmware sudo networkmanager iwd grub efibootmgr nvim sudo man
+pacstrap -K /mnt base base-devel linux-lts linux-firmware sudo networkmanager iwd grub os-prober efibootmgr nvim man
+
+# man-db
 
 # ----------------------------------------
 
@@ -61,14 +63,18 @@ sudo pacman -S hyprpaper hyprlock hypridle hyprpicker hyprshot hyprpolkitagent
 sudo pacman -S swaync
 
 # Terminal installation
-sudo pacman -S alacritty
+sudo pacman -S kitty
 
 # Utility apps
 sudo pacman -S fuzzel
-sudo pacman -S eza xdg-utils fd fzf tar unzip unrar wl-clipboard
+sudo pacman -S eza xdg-utils fd fzf tar unzip unrar wl-clipboard ripgrep bat
 
 # dev-tools
-sudo pacman -S nvm
+sudo pacman -S fnm
+pacman -S curl
+
+# dev-tools
+arp-scan ip-tables
 
 # font for browser
 # bu komutu goremiyorum, bu komutu indirmem gerekiyor.
@@ -105,15 +111,15 @@ sudo pacman -S bluetui # veya bluez-utils
 # system management
 Sudo pacman -S btop
 
+# kontrol edilmesi gerekiyor
+yay -S mullvad-vpn mullvad-browser
+
 reboot
 
 # xdg-mime config
 
 # GUI apps
-typora obsidian mullvad-vpn mullvad-browser
-
-# dev-tools
-arp-scan ip-tables
+typora obsidian
 
 # Terminal apps
 qemu nftables
@@ -124,19 +130,22 @@ sudo pacman -S flatpak
 
 # bakilacaklar
 hardinfo2
-lm_sensors
-btop
 
 # Duzenlenecekler
 zellij
 # tlp
 # tlpui
 fnm
-flatpak zen
-vite
 live-server
 imagemagick
-kitty
+brightnessctl
+# yay wps-office
 
-# catputccin
+# catputccin, hyprland, sddm, kitty, tmux, waybar, grub, ventoy
 git clone catputcin/hyprland, catputcin/hyprlock, catputcin/sddm
+# solid renkten image generator https://mdigi.tools/solid-color-image-generator/?utm_source=chatgpt.com
+speedtest, speedtestmd, man page
+# yay postman-bin
+# doppler, pass, jq, cargo, wget, curl, luarocks, lorem, mosquito,
+# os-prober, qt5-quickcontrols2, nvtop, lazydocker, podman
+# pacman -S power-profiles-daemon

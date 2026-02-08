@@ -13,27 +13,35 @@
 @import url("./memory.css");
 @import url("./disk.css");
 @import url("./mpris.css");
+@import url("./backlight-slider.css");
 
 * {
   /* border: solid 0.5px; */
-  font: normal bold 1rem "JetBrainsMono Nerd Font";
-  font-size: 14;
+  font: normal bold 1.05rem "JetBrainsMono Nerd Font";
+  margin: 0rem 0rem 0rem 0rem;
+  padding: 0rem 0rem 0rem 0rem;
 }
 /* Value: 	[ [ <‘font-style’> || <font-variant-css21> || <‘font-weight’> || <‘font-stretch’> ]? <‘font-size’> [ / <‘line-height’> ]? <‘font-family’> ] | caption | icon | menu | message-box | small-caption | status-bar  */
 
 .modules-left,
 .modules-right,
 .modules-center {
-  padding: 0 0.8rem;
-  /* background-color: black; */
+  /* padding: 0 1rem 0 1rem; */
+  margin: 0.37rem 0rem 0.0rem 0rem; /* üst boşluk ayarı  6px */
   border-radius: 0.4rem;
+}
+
+.modules-left {
+  /* background-color: @lavender; */
+  padding: 0 0 0 0.8rem;
+}
+
+.modules-center {
 }
 
 .modules-right {
   /* background-color: @lavender; */
-}
-
-.modules-center {
+  padding: 0 0.8rem 0 0;
 }
 
 /* .modules-center > widget{ */

@@ -1,0 +1,27 @@
+return {
+  -- null-ls (none-ls) plugin
+  -- {
+  --   "nvimtools/none-ls.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" }, -- zorunlu
+  --   config = function()
+  --     local null_ls = require("null-ls")
+  --
+  --     null_ls.setup({
+  --       sources = {
+  --         -- formatter
+  --         null_ls.builtins.formatting.hadolint,
+  --         -- spell completion
+  --         -- null_ls.builtins.completion.spell,
+  --         -- eslint için (none-ls-extras gerektirir)
+  --         -- require("none-ls.diagnostics.eslint"),
+  --       },
+  --     })
+  --   end,
+  -- },
+  --
+  -- -- Eğer eslint veya ekstra kaynaklar kullanacaksan
+  -- {
+  --   "m-hess/none-ls-extras.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "jose-elias-alvarez/null-ls.nvim" },
+  -- },
+}

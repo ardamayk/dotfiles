@@ -50,3 +50,36 @@ vim.opt.spelllang = "en_us,tr"
 -- vim.opt.spelloptions = "camel" -- lazyvim default configlerden dolayi is yapmıyor.
 
 -- vim.lsp.enable("pyright")
+
+-- TODO: calismiyor ama calismasi gerekiyor. cunku v . ile explorer actiktan .ts buffer'a gecince ilk acilan buffer'in filetype ini detect etmiyor. Diger file'larin ft sini detect ediyor.
+-- -- lazy.nvim yüklendikten sonra
+-- vim.schedule(function()
+--   vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+--     callback = function(args)
+--       local buf = args.buf
+--       -- Sadece normal dosya buffer’ları için
+--       if vim.bo[buf].buftype == "" then
+--         -- Filetype detect
+--         if vim.bo[buf].filetype == "" then
+--           vim.cmd("filetype detect")
+--         end
+--         -- Treesitter highlight
+--         if pcall(vim.treesitter.get_parser, buf) then
+--           vim.treesitter.start(buf)
+--         end
+--       end
+--     end,
+--   })
+-- end)
+
+-- -- Lua init.lua için
+-- vim.keymap.set("n", "<C-j>", ":cnext<CR>", { silent = true })
+-- vim.keymap.set("n", "<C-k>", ":cprev<CR>", { silent = true })
+
+-- init.lua veya lua/options.lua içine ekleyebilirsin
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "compose.yaml", "docker-compose.yaml" },
+  callback = function()
+    vim.bo.filetype = "yaml.docker-compose"
+  end,
+})

@@ -1,8 +1,11 @@
 #network {
-  margin: 0.4rem 0;
-  padding: 0 0.8rem;
-  border-left: white solid 0.1rem;
-  border-right: white solid 0.1rem;
-  color: @flamingo;
-  background-color: black;
+  /* font-size: 1.0rem; */
+  /* margin: 0.4rem 1.2rem; */
+  /* margin: 0 0.8rem 0 0; */
+  padding: 0.2rem 0.6rem ;
+  /* border: black solid 0.2rem; */
+  border-radius: 0.3rem;
+  /* border-right: black solid 0.1rem; */
+  color: white;
+  background-color: @bg-color;
 }

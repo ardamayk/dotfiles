@@ -1,5 +1,7 @@
+
 switch = "r"
 mode = "station"
+esc_quit = false  # Set to true to enable Esc key to quit the app
 
 [device]
 infos = "i"
@@ -11,8 +13,9 @@ stop = 'x'
 
 [station]
 toggle_scanning = "s"
-toggle_connect = " "
 
 [station.known_network]
-toggle_autoconnect = "a"
+toggle_autoconnect = "t"
 remove = "d"
+show_all = "a"
+share = "p"

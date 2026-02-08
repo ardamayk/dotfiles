@@ -9,33 +9,40 @@
 /* } */
 
 #battery {
-  margin: 0.4rem 0 0.4rem 0.8rem;
-  padding: 0 0.8rem 0 0.4rem;
-  border-radius: 0.4rem 0 0 0.4rem;
-  color: @yellow;
-  background-color: black;
+  /* margin: 0 0.8rem 0 0; */
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  /* color: @yellow; */
+  /* background-color: black; */
 }
 
 /* enough charge */
+/* charging */
+/* ise yaramiyor??? */
+/* #battery.charging { */
+/*   color: lawngreen; */
+/*   background-color: #2d302f; */
+/* } */
+
+
 #battery.good {
-  background: black;
-  color: green;
+  color: #fc9000;
+  background-color: @bg-color;
 }
 
-/* charging */
-#battery.charging {
-  background: black;
-  color: blue;
+#battery.fine {
+  color: #fcb000;
+  background-color: @bg-color;
 }
 
 /* discharging warning */
 #battery.discharging.warning {
-  background: black;
-  color: yellow;
+  color: #fcd600;
+  background-color: @bg-color;
 }
 
 /* discharging critical */
 #battery.discharging.critical {
-  background: black;
-  color: red;
+  color: #fcf600;
+  background-color: @bg-color;
 }

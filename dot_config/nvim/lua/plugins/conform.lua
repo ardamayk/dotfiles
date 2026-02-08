@@ -19,7 +19,9 @@ return {
       -- typescriptreact = { "prettier" },
       -- css = { "prettier" },
       -- html = { "prettier" },
-      -- json = { "prettier" },
+      json = { "biome" },
+      jsonc = { "biome" },
+      json5 = { "prettier" },
 
       -- Svelte
       svelte = { "prettier" },
@@ -34,6 +36,9 @@ return {
 
       -- markdown = { "rumdl" },
       markdown = { "prettier" },
+
+      -- yaml
+      yaml = { "yamlfmt" },
 
       -- -- Python
       python = {

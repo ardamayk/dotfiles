@@ -1,28 +1,29 @@
 {
-  "height": 30,
-  // "spacing": 8,
+  "height": 25,
+  "spacing": 13,
 
   "modules-left": [
-    "hyprland/workspaces",
+    "clock",
     "hyprland/language",
-    "mpris"
+    "mpris",
+    "backlight/slider",
+    "cava"
+
     // "sway/mode",
     // "sway/scratchpad",
   ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "group/my-tray",
     // "custom/media",
     "battery",
-    "memory",
-    "disk",
+    // "memory",
+    // "disk",
 
     // "cpu",
     // "temperature",
 
-    "bluetooth",
+    // "bluetooth",
     "network",
     "pulseaudio"
     // "privacy",
@@ -32,16 +33,17 @@
   "hyprland/workspaces": {
     "persistent-workspaces": {
       // adjust monitor name to yours
-      "eDP-1": [ 1, 2, 3 ], // DP-2 monitor will show 1,2,3 workspaces
+      "eDP-1": [1, 2, 3, 4, 5], // DP-2 monitor will show 1,2,3 workspaces
+      "DP-2": [6, 7, 8] // DP-2 monitor will show 1,2,3 workspaces
     },
     "spacing": 15
   },
 
   "hyprland/language": {
     "format": "{}",
-    "format-en": "US 🇺🇸",
+    "format-en": "US 🇺",
     // "format-en-colemak_dh": "AMERICA (Colemak-DH), HELL YEAH",
-    "format-tr": "TR 🇹🇷",
+    "format-tr": "TR 🇹",
     "keyboard-name": "keyd-virtual-keyboard"
   },
 
@@ -50,7 +52,6 @@
   //   "format": "load: {load5} ",
   //   "max-length": 100,
   // },
-
 
   // "privacy": {
   //   "icon-spacing": 4, "icon-size": 18, "transition-duration": 250,
@@ -84,59 +85,54 @@
   //   ]
   // },
 
-
-
   "clock": {
     "interval": 60,
     "format": "{:%d - %H:%M}",
     "tooltip-format": "{:%A}",
-    "timezone": "Europa/Istanbul"
+    "timezone": "Europe/Istanbul"
   },
-
-
-
-
-
-
-
-
 
   // modules-right
   "bluetooth": {
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": " {status}",
-    "format-disabled": "", // an empty format will hide the module
-    "format-connected": " {num_connections} connected",
+    "format-disabled": " disabled", // an empty format will hide the module
+    // "format-connected": " {num_connections} connected",
+    "format-connected": "",
     "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "alacritty -e bluetui"
-  }, 
+    // "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    // "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-connected": "{controller_alias}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "kitty -e bluetui"
+  },
 
-  "network": { 
+  "network": {
     "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
-    "format-disconnected": "", //An empty format will hide the module.
+    // "format-wifi": "  {signalStrength}%",
+    "format-wifi": "  {essid}",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-disconnected": "󱘖", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-wifi": "{ipaddr} {ifname}",
+    "tooltip-format-ethernet": "{ipaddr} {ifname}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "alacritty -e impala"
+    "on-click": "kitty -e impala"
   },
 
   "pulseaudio": {
-    "format": "{icon}  %{volume}",
-    "format-bluetooth": "{volume}% {icon}",
+    "format": "{icon}  {volume}",
+    "format-bluetooth": "{volume} {icon}", // no bluetooth icon
+    // "format-bluetooth": "{volume} {icon}  ",
     "format-muted": "",
     "format-icons": {
       "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
       "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
       "headphone": "",
       "hands-free": "",
-      "headset": "",
+      "headset": "", // whxm6 shows this idk
       "phone": "",
       "phone-muted": "",
       "portable": "",
@@ -144,42 +140,52 @@
       "default": ["", ""]
     },
     "scroll-step": 1,
-    "on-click": "pavucontrol",
+    "on-click": "kitty -e wiremix",
     "ignored-sinks": ["Easy Effects Sink"]
   },
 
+  // "custom/media": {
+  //   "format": "{}",
+  //   "tooltip": "Tray",
+  //   "exec": "playerctl metadata --format '{{ title }}'",
+  //   "interval": 1,
+  //   "on-click": "playerctl play-pause"
+  // },
 
+  "mpris": {
+    // "format": "{dynamic}",
+    // "format-paused": "{dynamic}",
+    "format": "{status_icon} {player}",
+    "format-paused": "{status_icon} {player}",
+    // "ignored-players": ["firefox"],
+    "player": "qobuz-linux",
+    "dynamic-order": ["title", "artist"], // , "artist"
+    "player-icons": {
+      "default": "▶",
 
-// "custom/media": {
-//   "format": "{}",
-//   "tooltip": "Tray",
-//   "exec": "playerctl metadata --format '{{ title }}'",
-//   "interval": 1,
-//   "on-click": "playerctl play-pause"
-// },
+      "mpv": "🎵"
+    },
+    "tooltip": true,
+    "tooltip-format": "{title}\nby {artist}",
+    "status-format": "{status}",
+    "status-icons": {
+      "playing": "▶",
+      "paused": "⏸"
+    }
+    // "ignored-players": ["firefox"]
+  },
 
-"mpris": {
-	"format": "{dynamic}",
-	"format-paused": "{dynamic}",
-  // "ignored-players": ["firefox"],
-  "player": "spotify",
-  "dynamic-order": ["title", "artist"],
-	"player-icons": {
-		"default": "▶",
-		"mpv": "🎵"
-	},
-	"status-icons": {
-		"paused": "⏸"
-	},
-	// "ignored-players": ["firefox"]
-},
-
-
+  "backlight/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal",
+    "device": "intel_backlight"
+  },
 
   "cpu": {
     "format": "  {usage}%",
     "tooltip": true,
-    "on-click": "alacritty -e btop"
+    "on-click": "kitty -e btop"
   },
 
   "temperature": {
@@ -189,63 +195,63 @@
     "format-critical": "{temperatureC}°C ",
     // "format": "{temperatureC}°C "
     "format": " {temperatureC}°",
-    "on-click": "alacritty -e btop"
+    "on-click": "kitty -e btop"
   },
 
-"battery": {
+  "battery": {
     // "bat": "BATT",
     // "adapter": "ACAD",
     "design-capacity": true,
     "full-at": 80,
     "interval": 120,
     "states": {
-        "good": 100,
-        "fine": 80,
-        "warning": 30,
-        "critical": 15
+      "good": 100,
+      "fine": 70,
+      "warning": 25,
+      "critical": 10
     },
-    "format": "{capacity}% {icon}",
+    "format": "{icon}  {capacity}",
     "format-icons": ["", "", "", "", ""],
     "max-length": 25
-},
-"memory": {
+  },
+  "memory": {
     "format": " {avail}GiB",
     "interval": 60,
     "max-length": 10
-},
-"disk": {
+  },
+  "disk": {
     "format": " {free}",
     "interval": 300,
     "path": "/",
     "tooltip-format": "{used} used"
-},
+  },
 
-// buradaki ise /mnt altindaki usb nin boyutunu dinamik olarak gosterecek
-// "disk": {
-//     "interval": 300,
-//     "format": "{free}",
-//     "path": "/mnt"
-// },
+  // buradaki ise /mnt altindaki usb nin boyutunu dinamik olarak gosterecek
+  // "disk": {
+  //     "interval": 300,
+  //     "format": "{free}",
+  //     "path": "/mnt"
+  // },
 
   "group/my-tray": {
-    "orientation": "horizontal",   // sağda yatay duracak
+    "orientation": "horizontal", // sağda yatay duracak
     "modules": [
-      "custom/trayicon",           // grup lideri (işaret veya ikon)
-      "tray"                       // gerçek tray modülü
+      "custom/trayicon", // grup lideri (işaret veya ikon)
+      "tray" // gerçek tray modülü
     ],
     "drawer": {
-      "transition-duration": 400,          // ms cinsinden animasyon
-      "transition-left-to-right": false,   // ikon sola kayıp açsın istiyorsan
-      "children-class": "drawer-child",    // child’lara CSS için class
-      "click-to-reveal": false             // hover ile açılsın
+      "transition-duration": 400, // ms cinsinden animasyon
+      "transition-left-to-right": false, // ikon sola kayıp açsın istiyorsan
+      "children-class": "drawer-child", // child’lara CSS için class
+      "click-to-reveal": false // hover ile açılsın
     }
   },
   "custom/trayicon": {
-    "format": "◀",        // buraya istediğin işareti koyabilirsin (örn. ⋮)
-    "tooltip": "Tray"     // üstüne gelince tooltip
+    "format": "◀", // buraya istediğin işareti koyabilirsin (örn. ⋮)
+    "tooltip": false // üstüne gelince tooltip
   },
   "tray": {
-    "icon-size": 18,
-    "spacing": 10
+    // "icon-size": 18,
+    "spacing": 16
   }
 }

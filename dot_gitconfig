@@ -1,0 +1,16 @@
+# This is Git's per-user configuration file.
+[user]
+	name = ardamayk
+	email = "93454798+ardamayk@users.noreply.github.com"
+	signingkey = /home/r/.ssh/212-prod-ssh
+# Please adapt and uncomment the following lines:
+#	name = 
+#	email = r@am-l-a-new.(none)
+[init]
+	defaultbranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true

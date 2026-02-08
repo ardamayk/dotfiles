@@ -31,17 +31,19 @@
 }
 
 #custom-trayicon {
-  margin: 0.4rem 0;
-  background-color: black;
-  border-radius: 0 0.4rem 0.4rem 0;
-  padding: 0 0.4rem 0 0.4rem;
+  margin: 0 1.2rem 0 0;
+  padding: 0 0.6rem 0 1.0rem;
+  border-radius: 0 0.3rem 0.3rem 0;
+  color: white;
+  background-color: @bg-color;
 }
 
 #tray {
-  margin: 0.4rem 0;
-  padding: 0 0.4rem;
-  background-color: black;
-  border-radius: 0.2rem 0 0 0.2rem;
+  margin: 0 0 0 0;
+  padding: 0 0.6rem;
+  border-radius: 0.3rem 0 0 0.3rem;
+  color: @lavender;
+  background-color: @bg-color;
 }
 
 

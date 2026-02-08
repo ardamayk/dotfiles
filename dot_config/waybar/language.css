@@ -1,7 +1,9 @@
 #language {
-  margin: 0.4rem 0;
+  margin: 0 0;
   padding: 0 0.8rem;
-  background-color: black;
-  border-left: white solid 0.1rem;
-  border-right: white solid 0.1rem;
+  border-radius: 0.3rem;
+  /* border-left: white solid 0.1rem; */
+  /* border-right: white solid 0.1rem; */
+  color: white;
+  background-color: @bg-color;
 }

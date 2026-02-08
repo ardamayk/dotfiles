@@ -1,5 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env
 export EDITOR=nvim
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:$HOME/go/bin
+export HISTTIMEFORMAT="%F %T "
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/home/r/.local/bin:$PATH"
+
 # export HOTKEYS_PATH=~/.config/superfile/vimHotkeys.toml
 
 # export NVM_DIR="$HOME/.config/nvm"
