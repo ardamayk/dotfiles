@@ -26,3 +26,5 @@ alias telegram="flatpak run org.telegram.desktop"
 alias ll="ls -l"
 
 # alias rumdl="/home/r/.local/share/nvim/mason/bin/rumdl"
+
+alias cp="xcp"
