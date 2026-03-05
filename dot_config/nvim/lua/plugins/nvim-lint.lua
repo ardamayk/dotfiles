@@ -7,6 +7,8 @@ return {
       -- hangi linters hangi filetype için
       lint.linters_by_ft = {
         dockerfile = { "hadolint", "trivy" }, --> hadolint Dockerfile icindeki hatalari bulur, trivy ise guvenlik aciklarini tarar. trivy terminalden calistirmak daha mantikli olabilir.
+        sh = { "shellcheck" },
+        bash = { "shellcheck" },
       }
 
       -- autocmd ile kaydederken veya açarken lint çalıştır

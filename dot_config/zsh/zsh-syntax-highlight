@@ -1,5 +1,12 @@
 #!/usr/bin/env zsh
+# Sadece en gerekli renklendirmeleri yükle
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# arch icin
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# # ubuntu icin
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_STYLES[default]='fg=white'
 ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'

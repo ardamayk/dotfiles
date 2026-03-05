@@ -1,20 +1,20 @@
 # github personal 
+# Host me.github
+# 	HostName github.com
+# 	User git
+#   IdentityFile ~/.ssh/212-prod-ssh
+#   IdentitiesOnly yes
+# 	# IdentityFile ~/.ssh/me.github
+
+# Kendi github hesabima girmek icin kullaniyorum
 Host me.github
 	HostName github.com
 	User git
-  IdentityFile ~/.ssh/212-prod-ssh
+	IdentityFile ~/.ssh/me.github
   IdentitiesOnly yes
-	# IdentityFile ~/.ssh/me.github
-
-# # Kendi github hesabima girmek icin kullaniyorum
-# Host github.com
-# 	HostName github.com
-# 	User git
-# 	IdentityFile ~/.ssh/212-prod-ssh
-#   IdentitiesOnly yes
 
 # VPS'e baglanmak icin kullaniyorum, ssh-agent'a eklek' sifre girmeyesin
-Host vds-host
+Host hostingdunyam-vds
   # HostName olarak mailplume.com da yazabiliriz.
   # HostName 45.136.6.147 
   # Normalde olurdu ama sadece tailsclae e izin verecek sekilde ufw ayarlamasi yaptigim icin tailscale ip si gerekiyor.
@@ -26,9 +26,16 @@ Host vds-host
   # ForwardAgent no
   # SecurityKeyProvider /usr/lib/ssh/ssh-sk-helper
 
+
 # VPS uzerinde githuba a girmek icin passhpraase olan ama SK olmayan ve ayrica localdeki 212 ssh degil de onun yerine farkli bir ssh anahtari kullan. ssh -A vds ile oraya aktar bunu
 # forwardagnet yes olmali bunun, EMIN DEGILIM
-Host vds-to-github
+Host hostingdunyamVds-to-github
   HostName github.com
   User git
   IdentityFile ~/.ssh/vds-to-github
+
+host contabo-vps
+  # hostname 167.86.114.143
+  hostname 100.66.17.12
+  user aras
+  identityfile ~/.ssh/vds-host

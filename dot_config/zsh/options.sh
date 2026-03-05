@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+
 setopt AUTO_PUSHD PUSHD_IGNORE_DUPS
 setopt SHARE_HISTORY HIST_VERIFY
 HISTFILE="$HOME/.local/state/zsh/history"

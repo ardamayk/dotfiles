@@ -1,5 +1,9 @@
 #!usr/bin/env zsh
 
+# # Sistemin terminal baslatma hizini olc
+# zmodload zsh/zprof
+
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=150
@@ -10,39 +14,98 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/r/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
-# PROMPT='$B%F{green}%1~ '
-PROMPT='%B%F{green}%1~%f%b %F{yellow}%#%f '
-
-
-. ~/.config/zsh/alias.sh
-. ~/.config/zsh/export.sh
-. ~/.config/zsh/function.sh
-. ~/.config/zsh/zsh-syntax-highlight
-. ~/.config/zsh/tmux-ssh.sh
-
-eval "$(zoxide init zsh)"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/path.zsh.inc' ]; then . '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/path.zsh.inc'; fi
+# PROMPT='$B%F{green}%1~ '
+PROMPT='%B%F{green}%1~%f%b %F{yellow}%#%f '
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/completion.zsh.inc'; fi
 
-# bun completions
-[ -s "/home/r/.bun/_bun" ] && source "/home/r/.bun/_bun"
+# # dosyalar cok dusuk ddiye gerek yok buna. zsh-syntax-highlight icin kullanilabilir
+# # Zsh dosyalarını otomatik compile eden fonksiyon
+# zcompile_if_needed() {
+#   local file=$1
+#   # Dosya varsa ve .zwc versiyonundan yeniyse (veya .zwc yoksa) derle
+#   if [[ -f "$file" ]]; then
+#     if [[ ! -f "${file}.zwc" || "$file" -nt "${file}.zwc" ]]; then
+#       zcompile "$file"
+#     fi
+#   fi
+# }
+#
+# # Derlenmesini istediğin dosyaları buraya ekle
+# zcompile_if_needed ~/.config/zsh/alias
+# zcompile_if_needed ~/.config/zsh/export
+# zcompile_if_needed ~/.config/zsh/function
+# zcompile_if_needed ~/.config/zsh/zsh-syntax-highlight
 
-# pnpm
-export PNPM_HOME="/home/r/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+
+# . ~/.config/zsh/python-uv.sh
+. ~/.config/zsh/alias.sh
+. ~/.config/zsh/export.sh
+. ~/.config/zsh/function.sh
+. ~/.config/zsh/tmux-ssh.sh
+
+
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/path.zsh.inc' ]; then . '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/path.zsh.inc'; fi
+#
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/r/project/aem-gcloud-test-project/google-cloud-sdk/completion.zsh.inc'; fi
+#
+# # bun completions
+# [ -s "/home/r/.bun/_bun" ] && source "/home/r/.bun/_bun"
+
+
+
+
+autoload -Uz compinit
+
+# 3. Akıllı Başlatma: 
+# # Sadece .zcompdump dosyası 24 saatten eskiyse audit yap, yoksa direkt yükle.
+# if [[ -n "$ZDOTDIR/.zcompdump"(#qN.m-1) ]]; then
+#   compinit -C -d "$ZDOTDIR/.zcompdump"
+# else
+#   compinit -d "$ZDOTDIR/.zcompdump"
+# fi
+
+
+# Sadece .zcompdump dosyası 24 saatten eskiyse audit yap, yoksa direkt yükle.
+# Önce dizinin var olduğundan emin ol
+[[ -d "$HOME/.cache/zsh" ]] || mkdir -p "$HOME/.cache/zsh"
+
+# Zcompdump yolu
+local ZCOMPDUMP="$HOME/.cache/zsh/.zcompdump"
+
+# 24 saat kontrolü ile başlat
+if [[ -n "$ZCOMPDUMP"(#qN.m-1) ]]; then
+  compinit -C -d "$ZCOMPDUMP"
+else
+  compinit -d "$ZCOMPDUMP"
+fi
+
+
+
+# 4. Tamamlama sistemine cache desteği ver (Hız için kritik)
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path "$ZSH_CACHE"
+
+
+
+
+
+# TODO:
+# uv komutunun help ine baktigimizda generate-shell-completion olamamsina ragemn bu komut calistirilabiliyor. NEDEN?
+# uv tab yaptigimda ise completionlar var diye suanda generate-shell-completion secenegi gozukuyor. ILGINC
+eval "$(just --completions zsh)"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(zoxide init zsh)"
+
+
+
+. ~/.config/zsh/zsh-syntax-highlight
+
+# # Sistemin terminal acilma hizini olcmeyi bitir
+# zprof

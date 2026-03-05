@@ -140,6 +140,8 @@ return {
       -- --     },
       -- --   },
       -- -- })
+
+      -- ShellCheck'i LSP olarak kaydetmek ve başlatmak için
     end,
   },
 }
