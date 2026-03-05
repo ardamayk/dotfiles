@@ -1,0 +1,29 @@
+alias
+unalias
+type
+
+
+lsmod
+modinfo
+systool
+modprobe
+
+udev
+
+automatic module loading
+
+early module loading
+
+systemd
+
+kernel module
+
+
+arch linux u kurdun
+ubuntuyu kurdun. 
+ubuntuyu kurup tekrar acinca pc yi, ubuntu boot sirasinda kendini one koruyor. 
+efibootmgr -v yaparak sirayi ogrenebilirsin. bunu arch linux onde olacak sekilde degistir ve reboot atinca arch acilacak ancak yine de ubuntu gozukmeyecek.
+sudo efibootmgr -o XXXX,YYYY,ZZZZ seklinde boot sirasini degistir ve en ilk arch linux olacak sekilde duzenle
+arch icinde os-prober indir ve /etc/default/grub icindeki DISABLE-OS-PROBER=false satirini yorum satiri olmaktan cikart.
+daha sonra grub-mkconfig -o /boot/grub/grub.cfg yapinca bu sefer grub ubuntu yu gorebilecek hale gelecek
+os-prober i tek basina kullanmak sadece sistemdeki isletim sistemlerini gosteriyor. grub in gormesi icin ustteki komutun calistirilmasi gerekiyor.
