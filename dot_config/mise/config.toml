@@ -1,0 +1,9 @@
+[tools]
+go = "latest"
+just = "latest"
+lua-language-server = "latest"
+node = "24.13.1"
+pnpm = "latest"
+python = "3.14.3"
+usage = "latest"
+uv = "latest"

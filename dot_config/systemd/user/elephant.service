@@ -1,0 +1,14 @@
+[Unit]
+Description=Elephant Data Provider Service
+After=graphical-session.target
+
+[Service]
+# Elephant binary'sinin tam yolu
+ExecStart=/usr/bin/elephant
+Restart=on-failure
+# Ortam değişkenlerinin doğru yüklenmesi için
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

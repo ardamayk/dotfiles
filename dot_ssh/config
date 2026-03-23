@@ -13,6 +13,11 @@ Host me.github
 	IdentityFile ~/.ssh/me.github
   IdentitiesOnly yes
 
+Host me.codeberg
+  HostName codeberg.com
+  User git
+  identityfile ~/.ssh/me.github
+
 # VPS'e baglanmak icin kullaniyorum, ssh-agent'a eklek' sifre girmeyesin
 Host hostingdunyam-vds
   # HostName olarak mailplume.com da yazabiliriz.
@@ -39,3 +44,12 @@ host contabo-vps
   hostname 100.66.17.12
   user aras
   identityfile ~/.ssh/vds-host
+
+
+
+host digitalocean-vps
+  hostname 100.89.220.79
+  # hostname 157.230.116.112 
+  user arda
+  identityfile ~/.ssh/digitalocean-vps
+

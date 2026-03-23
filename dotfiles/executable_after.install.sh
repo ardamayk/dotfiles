@@ -52,6 +52,78 @@ enable_service() {
   fi
 }
 
+# Terminal seçimi için fonksiyon
+select_terminal() {
+  echo -e "${BLUE}==> Lütfen kullanmak istediğiniz terminal emülatörünü seçin:${NC}"
+  options=("kitty" "wezterm" "alacritty" "ghostty" "Hepsi (Tümünü Kur)" "İptal")
+
+  select opt in "${options[@]}"; do
+    case $opt in
+    "kitty" | "wezterm" | "alacritty" | "ghostty")
+      install_pkgs "Terminal" "$opt"
+      break
+      ;;
+    "Hepsi (Tümünü Kur)")
+      install_pkgs "Terminaller" "kitty" "wezterm" "alacritty" "ghostty"
+      break
+      ;;
+    "İptal")
+      echo "Terminal kurulumu atlandı."
+      break
+      ;;
+    *) echo "Geçersiz seçim: $REPLY. Lütfen 1 ile 6 arasında bir numara girin." ;;
+    esac
+  done
+}
+
+# Shell seçimi ve varsayılan yapma fonksiyonu
+select_shell() {
+  echo -e "${BLUE}==> Lütfen varsayılan olarak kullanmak istediğiniz shell'i seçin:${NC}"
+  # İhtiyaca göre seçenekleri artırabilirsin
+  options=("zsh" "fish" "bash" "Atla")
+
+  select opt in "${options[@]}"; do
+    case $opt in
+    "zsh" | "fish" | "bash")
+      install_pkgs "Shell" "$opt"
+
+      # Kullanıcıyı tespit et (Sudo ile çalıştırılıyorsa gerçek kullanıcıyı al)
+      local target_user=${SUDO_USER:-$USER}
+
+      echo -e "${GREEN}==> $target_user kullanıcısı için varsayılan shell $opt olarak ayarlanıyor...${NC}"
+      sudo chsh -s "$(which "$opt")" "$target_user"
+      break
+      ;;
+    "Atla")
+      echo "Shell değişikliği atlandı."
+      break
+      ;;
+    *) echo "Geçersiz seçim. Lütfen listeden bir numara girin." ;;
+    esac
+  done
+}
+
+# Dosya yöneticisi seçimi
+select_file_manager() {
+  echo -e "${BLUE}==> Lütfen kullanmak istediğiniz dosya yöneticisini seçin:${NC}"
+  # İhtiyaca göre seçenekleri artırabilirsin
+  options=("dolphin" "thunar" "nautilus" "pcmanfm-qt" "Atla")
+
+  select opt in "${options[@]}"; do
+    case $opt in
+    "dolphin" | "thunar" | "nautilus" | "pcmanfm-qt")
+      install_pkgs "Dosya Yöneticisi" "$opt"
+      break
+      ;;
+    "Atla")
+      echo "Dosya yöneticisi kurulumu atlandı."
+      break
+      ;;
+    *) echo "Geçersiz seçim. Lütfen listeden bir numara girin." ;;
+    esac
+  done
+}
+
 # --- PAKET LİSTELERİ ---
 
 # yay install i yapilmali
@@ -59,21 +131,34 @@ enable_service() {
 # Her zaman kurulması gereken en temel araçlar
 # unzip ve tar yerine ouch ise yarar mi test edilmeli
 # reflector ayarlamalari yapilmali
+# mise indirilmesi gerekiyor aur'dan
 SYSTEM_BASE=(
-  "sudo" "git" "wget" "curl" "chezmoi" "zsh"
-  "neovim" "tmux" "wl-clipboard" "brightnessctl" "btop" "man"
+  "sudo" "git" "wget" "curl" "chezmoi" "ufw" "networkmanager" "iwd"
+  "neovim" "tmux" "wl-clipboard" "brightnessctl" "btop" "man" "electron"
+  "eza" "fzf" "ripgrep" "bat" "keyd" "zoxide" "fd"
+  "ouch" "dust" "duf" "flatpak"
 )
 
+# xcp nin yay ile indirilmesi gerekiyor
+# xcp, "xdg-utils"
 CORE=(
-  "dolphin" "xdg-utils" "archlinux-xdg-menu" "eza" "fzf" "ripgrep" "bat" "keyd"
-  "zoxide" "fd" "ouch" "dust" "duf" "imagemagick" "pass" "kitty" "flatpak"
-  "zsh-syntax-highlighting" "xcp" "ueberzugpp" "feh" "lsd"
+  "imagemagick" "pass" "flatpak"
+  "ueberzugpp" "feh" "lsd"
+)
+
+# burada indirilen paketler duzeltilmeli
+TERMINAL=(
+
+)
+
+ZSH_PLUGIN_PACKAGES=(
+  "zsh" "zsh-syntax-highlighting" "p10k" "oh_my_zsh"
 )
 
 DRIVERS=("nvidia-dkms" "nvidia-utils" "linux-headers")
 
 # NetworkManager icin backend iwd set edilmeli
-NETWORKING=("networkmanager" "iwd" "impala" "nftables" "nethogs" "openssh" "ufw" "bind" "bluez" "bluez-utils" "bluetui")
+NETWORKING=("nftables" "nethogs" "openssh" "bind" "bluez" "bluez-utils" "bluetui")
 
 # fuzzel i degistir
 # sddm icin cattputcin temasi eklenmeli
@@ -82,7 +167,7 @@ NETWORKING=("networkmanager" "iwd" "impala" "nftables" "nethogs" "openssh" "ufw"
 HYPR_ECOSYSTEM=(
   "hyprland" "hyprsunset" "hyprpolkitagent" "hyprpicker" "hyprlock"
   "hypridle" "hyprpaper" "xdg-desktop-portal-hyprland" "hypershot" "uwsm"
-  "waybar" "swaync" "sddm" "fuzzel" "electron"
+  "waybar" "swaync" "sddm" "fuzzel" "archlinux-xdg-menu" "impala"
 )
 
 # python paket yoneticisi olarak uv ogrenilmeli
@@ -136,6 +221,12 @@ ADMIN=(
 
 # --- İCRAAT (KURULUM) ---
 
+# Terminal sec ve kur
+select_shell
+
+# Terminal sec ve kur
+select_terminal
+
 # Temel sistemi ve fontları sormadan kur (sistem için kritik)
 install_pkgs "Temel Sistem" "${SYSTEM_BASE[@]}"
 install_pkgs "Fontlar" "${FONTS[@]}"
@@ -174,3 +265,10 @@ echo -e "${YELLOW}==> NOT: Bazı paketler (bluetui, wiremix, yay) AUR üzerinded
 echo -e "${YELLOW}==> pacman bunları bulamadıysa hata verebilir. Önce 'yay' kurmanız önerilir.${NC}"
 
 echo -e "${GREEN}==> KURULUM TAMAMLANDI!${NC}"
+
+# BAKILACAKLAE
+walker, elephant, elephant icin systemd file olusturulmasi ve user ile calistirilmasi # systemctl --user ile baslatilmasi, kde iicn shortcut olusturulmasi
+yay yerine paru
+mise, mise config leirnin otomatize edilmesi gerekiyor, intellisense yapilmali
+
+krunner, ulauncher, wofi, rofi, tofi, fuzzel

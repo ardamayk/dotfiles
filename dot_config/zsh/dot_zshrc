@@ -42,6 +42,8 @@ PROMPT='%B%F{green}%1~%f%b %F{yellow}%#%f '
 # zcompile_if_needed ~/.config/zsh/zsh-syntax-highlight
 
 
+eval "$(mise activate zsh)"
+. ~/.zshrc
 # . ~/.config/zsh/python-uv.sh
 . ~/.config/zsh/alias.sh
 . ~/.config/zsh/export.sh
@@ -106,6 +108,9 @@ eval "$(zoxide init zsh)"
 
 
 . ~/.config/zsh/zsh-syntax-highlight
+
+# vim modunu acar
+bindkey -v
 
 # # Sistemin terminal acilma hizini olcmeyi bitir
 # zprof

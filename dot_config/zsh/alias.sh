@@ -4,6 +4,7 @@ alias v="nvim"
 alias nv='sudo -E nvim'
 
 # System commands
+#  -lgh
 alias ls="eza -lg  --links --group-directories-first --time-style='+%d-%b-%y'"
 alias lsa="eza -la  --links --group-directories-first --time-style='+%d-%b-%y'"
 alias lsd="eza -lD  --links --group-directories-first --ignore-glob='node_modules' --time-style='+%d-%b-%y'"
@@ -30,3 +31,6 @@ alias s="speedtest"
 # alias rumdl="/home/r/.local/share/nvim/mason/bin/rumdl"
 
 alias cp="xcp"
+# alias wezterm="flatpak run org.wezfurlong.wezterm"
+
+alias zcomp-refresh='rm -f ~/.cache/zsh/.zcompdump && exec zsh'

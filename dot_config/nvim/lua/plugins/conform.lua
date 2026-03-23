@@ -49,6 +49,11 @@ return {
         -- To organize the imports.
         "ruff_organize_imports",
       },
+
+      tex = {
+        -- "latexindent",
+        "tex-fmt",
+      },
     },
   },
 }

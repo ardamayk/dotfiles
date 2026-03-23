@@ -35,3 +35,8 @@ esac
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
+export WEZTERM_CONFIG_FILE="$HOME/.config/wezterm/wezterm.lua"
+
+# neovimdeki smart-splits wezterm i gorebilsin diye once soft linki bu klasore olusturup sonra path e ekliyoruz
+# export PATH="$HOME/.local/bin:$PATH"

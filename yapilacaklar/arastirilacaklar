@@ -30,7 +30,8 @@ newsboat
 
 regex 101
 
-RabbitMQ
+RabbitMQ, rabbit
+coolify, cpanel
 
 agent.md
 skills.md
@@ -40,3 +41,18 @@ fail2ban
 zram, zswap
 
 lobsters arch aur, terminal film oynatici
+
+nix, pacakge manager
+paru, yay yerine kullanilan bir sey
+mpv-player
+wofi, rofi, tofi, fuzzel, walker, ulauncher, krunner
+mise, flatseal, fedora-media-writer
+kde-connect, calligra, octopi, mpv-player
+kdenlive, btrfs assistant, postman, insomnia
+fedora-media-writer, wezterm, spactacle, micro, kate
+ark (archive), avahi ssh seyleri
+p10k, zsh, oh my zsh
+btree, btrfs, snapper, timeshift
+grapheneos, monero
+
+opencode, crush, claude-desktop, cursor, antigravity, google-ai-studio

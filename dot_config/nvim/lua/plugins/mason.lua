@@ -9,11 +9,14 @@ return {
   -- Mason-LSPConfig: hangi LSP server'lar kurulacak?
   {
     "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
     opts = {
-      -- automatic_enable = true, -- bir ise yaramiyor?
+      automatic_installation = true, -- bir ise yaramiyor?
       ensure_installed = {
         "pyright", -- bunun yerine ruff kullaniyorum, formatter olarak. linter olarak bakilmasi gerekiyor. intellisense yok sanirim?
-        "ruff",
         "html",
         "cssls",
         "bashls",
@@ -23,6 +26,15 @@ return {
         "prettier",
         "svelte",
         "tailwindcss",
+        "hadolint",
+        "clangd",
+        "clangd-format",
+        "trivy",
+        "ruff",
+        "docker_compose_language_service",
+        "docker-language-server",
+        "docker-compose-language-service",
+        "bash-language-server",
         -- "typos_ls",
         "sfmt",
         -- "tree-sitter-cli" --> ?
@@ -141,6 +153,9 @@ return {
       -- --   },
       -- -- })
 
+      vim.lsp.enable("texlab", true)
+      -- vim.lsp.enable("ltex_plus") -- bu her harf hatasina turkce de laf ediyor. Bunu ingilizce bir tex yazarken kullanmak daha iyi olur
+      vim.lsp.enable("vale_ls") -- vale-cli in inik olmasi ve .vale.ini veya vale.ini dosyalarinin root klasorde tanimli olmasi gerekiyor
       -- ShellCheck'i LSP olarak kaydetmek ve başlatmak için
     end,
   },
