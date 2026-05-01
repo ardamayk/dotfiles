@@ -48,8 +48,8 @@ host contabo-vps
 
 
 host digitalocean-vps
-  hostname 100.89.220.79
-  # hostname 157.230.116.112 
+  hostname 100.89.21.133
+  # hostname 206.81.22.241
   user arda
   identityfile ~/.ssh/digitalocean-vps
 

@@ -1,0 +1,11 @@
+fisher
+zoxide
+fzf
+rg
+tide
+catputtcin
+hyperfine
+termbin, netcat
+
+hyperfine --warmup 5 --shell=none "fish --no-config -c exit"
+hyperfine --warmup 5 --shell=none "zsh -f -c exit"

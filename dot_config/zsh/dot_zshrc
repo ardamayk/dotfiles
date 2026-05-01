@@ -63,7 +63,8 @@ eval "$(mise activate zsh)"
 
 
 
-autoload -Uz compinit
+autoload -Uz compinit; compinit
+source ~/.config/zsh/fzf-tab/fzf-tab.plugin.zsh
 
 # 3. Akıllı Başlatma: 
 # # Sadece .zcompdump dosyası 24 saatten eskiyse audit yap, yoksa direkt yükle.

@@ -157,6 +157,8 @@ return {
       -- vim.lsp.enable("ltex_plus") -- bu her harf hatasina turkce de laf ediyor. Bunu ingilizce bir tex yazarken kullanmak daha iyi olur
       vim.lsp.enable("vale_ls") -- vale-cli in inik olmasi ve .vale.ini veya vale.ini dosyalarinin root klasorde tanimli olmasi gerekiyor
       -- ShellCheck'i LSP olarak kaydetmek ve başlatmak için
+
+      vim.lsp.enable("just", true)
     end,
   },
 }

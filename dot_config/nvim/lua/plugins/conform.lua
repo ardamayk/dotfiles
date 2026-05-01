@@ -54,6 +54,10 @@ return {
         -- "latexindent",
         "tex-fmt",
       },
+
+      bib = {
+        "bibtex-tidy",
+      },
     },
   },
 }

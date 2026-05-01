@@ -195,6 +195,8 @@ MEDIA=(
   "texlive-fontsrecommended" "texlive-core" "ffmpeg" "localsend-bin"
 )
 
+# TODO:
+# pavucontrol cikartilacak
 SOUND=(
   "pipewire" "pipewire-pulse" "pipewire-alsa" "wireplumber" "playerctl" "pavucontrol" "wiremix"
 )
@@ -272,3 +274,5 @@ yay yerine paru
 mise, mise config leirnin otomatize edilmesi gerekiyor, intellisense yapilmali
 
 krunner, ulauncher, wofi, rofi, tofi, fuzzel
+doas, opendoas(cachyos), sudo-rs, chaotic-aur
+pikaur, easy-effects, zapret, discord, sioyek, dpibreak, dnscrypt-proxy 

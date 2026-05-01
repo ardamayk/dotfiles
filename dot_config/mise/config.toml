@@ -1,9 +1,12 @@
 [tools]
+bun = "latest"
+dotnet = "10.0"
 go = "latest"
 just = "latest"
 lua-language-server = "latest"
 node = "24.13.1"
 pnpm = "latest"
-python = "3.14.3"
+python = "latest"
 usage = "latest"
 uv = "latest"
+yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
