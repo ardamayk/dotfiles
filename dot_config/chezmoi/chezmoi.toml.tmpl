@@ -1,0 +1,12 @@
+{{- $email := promptStringOnce . "email" "Email adresiniz nedir" -}}
+{{- $name := "Arda Eren Mike" -}}
+
+[data]
+    email = {{ $email | quote }}
+    name = {{ $name | quote }}
+
+[encryption]
+    tool = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age1u7mz8h65sjxle55hqn90lcgfjkt5ysvulx6nf9hk680ww3wfue4qnnalyj"

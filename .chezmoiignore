@@ -1,3 +1,1 @@
-{{- if ne .chezmoi.hostname "am-l-a" }}
-~/.config/fuzzel/fuzzel.ini
-{{- end }}
+age-key.txt
