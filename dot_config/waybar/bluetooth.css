@@ -1,9 +1,0 @@
-#bluetooth {
-  font-size: 1.0rem;
-  margin: 0 0.8rem 0 0;
-  padding: 0 0.8rem 0 0.4rem;
-  /* border: black solid 0.1rem; */
-  /* border-right: black solid 0.1rem; */
-  color: @lavender;
-  background-color: #2d302f;
-}
