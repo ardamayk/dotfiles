@@ -1,4 +1,6 @@
-# arda/ klasöründeki her bir .fish dosyasını bul ve yükle
+# conf.d/arda.fish
+echo "DEBUG: arda.fish yukleniyor"
 for file in (status dirname)/arda/*.fish
+    echo "DEBUG: sourcing $file"
     source $file
 end

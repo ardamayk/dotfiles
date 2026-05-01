@@ -1,9 +1,4 @@
-{{- $email := promptStringOnce . "email" "Email adresiniz nedir" -}}
-{{- $name := "Arda Eren Mike" -}}
 
-[data]
-    email = {{ $email | quote }}
-    name = {{ $name | quote }}
 
 [encryption]
     tool = "age"
